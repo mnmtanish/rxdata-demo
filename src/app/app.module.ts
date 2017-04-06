@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Database } from 'rxdata';
-
 import { AppComponent } from './app.component';
+import { createDatabase } from './database';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
     HttpModule
   ],
   providers: [
-    { provide: Database, useValue: new Database() }
+    { provide: Database, useFactory: createDatabase }
   ],
   bootstrap: [AppComponent]
 })
